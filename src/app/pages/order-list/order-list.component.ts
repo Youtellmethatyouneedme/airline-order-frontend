@@ -46,7 +46,13 @@ export class OrderListComponent implements OnInit {
       default: return 'default';
     }
   }
+getStatusCount(orders: Order[], status: string): number {
+  return orders.filter(order => order.status === status).length;
+}
 
+getTotalAmount(orders: Order[]): number {
+  return orders.reduce((total, order) => total + order.amount, 0);
+}
   logout() {
     this.authService.logout();
   }
