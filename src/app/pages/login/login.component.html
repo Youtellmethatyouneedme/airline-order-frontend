@@ -1,6 +1,26 @@
 <div class="login-container">
+  <!-- 浮动装饰元素 -->
+  <div class="floating-element"></div>
+  <div class="floating-element"></div>
+  <div class="floating-element"></div>
+  <div class="floating-element"></div>
+  
+  <!-- 粒子效果 -->
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  
   <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="submitForm()">
-    <h2 class="login-title">航空订单系统</h2>
+    <h1 class="system-title">航空订单系统</h1>
+    <p class="system-subtitle">高效 · 安全 · 专业</p>
+    
+    <h2 class="login-title">用户登录</h2>
+    
     <nz-form-item>
       <nz-form-control nzErrorTip="请输入用户名!">
         <nz-input-group nzPrefixIcon="user">
@@ -8,6 +28,7 @@
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
+    
     <nz-form-item>
       <nz-form-control nzErrorTip="请输入密码!">
         <nz-input-group nzPrefixIcon="lock">
@@ -15,6 +36,13 @@
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
-    <button nz-button class="login-form-button" [nzType]="'primary'" [nzLoading]="isLoading">登 录</button>
+    
+    <button nz-button class="login-form-button" [nzType]="'primary'" [nzLoading]="isLoading" [disabled]="isLoading">
+      {{ isLoading ? '登录中...' : '登 录' }}
+    </button>
+    
+    <div class="form-footer">
+      <a class="forgot-link" href="#">忘记密码？</a>
+    </div>
   </form>
 </div>
